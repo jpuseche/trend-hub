@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"time"
+	"trend-hub/scraper"
 )
 
 type Trend struct {
@@ -17,6 +18,8 @@ type Trend struct {
 var urls = []string{"google.com", "youtube.com", "twitter.com"}
 
 func home(res http.ResponseWriter, req *http.Request) {
+	scraper.ScrapeData()
+
 	startTime := time.Now()
 	fmt.Println("Getting Trends")
 
