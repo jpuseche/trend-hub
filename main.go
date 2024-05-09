@@ -41,7 +41,7 @@ func home(res http.ResponseWriter, req *http.Request) {
 	endTime := time.Now()
 
 	fmt.Printf("Got Trends sucessfully\n")
-	fmt.Printf("Duration: %v", endTime.Sub(startTime))
+	fmt.Printf("Duration: %v\n", endTime.Sub(startTime))
 	fmt.Fprint(res, trends)
 }
 

@@ -11,10 +11,15 @@ func ScrapeData() {
 
 	c := colly.NewCollector()
 
-	c.Visit("https://en.wikipedia.org/wiki/Main_Page")
-
-	c.OnHTML("li.product", func(e *colly.HTMLElement) {
-		fmt.Println(e)
+	c.OnHTML(".body_bold.color-titles", func(e *colly.HTMLElement) {
+		fmt.Println("---------------------------------")
+		fmt.Println(e.Text)
 	})
+
+	scrapingUrl := "https://brightdata.com/"
+	err := c.Visit(scrapingUrl)
+	if err != nil {
+		fmt.Printf("Can't get url for scraping: %v\n", scrapingUrl)
+	}
 
 }
